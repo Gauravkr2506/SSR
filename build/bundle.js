@@ -504,7 +504,7 @@ function Home() {
     _react2.default.createElement(
       "h3",
       null,
-      "Welcome"
+      "Welcome1"
     )
   );
 }

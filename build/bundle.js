@@ -324,7 +324,6 @@ app.use("/api", (0, _expressHttpProxy2.default)("http://react-ssr-api.herokuapp.
 app.use(_express2.default.static("public"));
 
 app.get("*", function (req, res) {
-  return res.send("test Gaurav");
   var store = (0, _createStore2.default)(req);
   var promises = (0, _reactRouterConfig.matchRoutes)(_Routes2.default, req.path).map(function (_ref) {
     var route = _ref.route;

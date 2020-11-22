@@ -316,7 +316,7 @@ var app = (0, _express2.default)();
 
 app.use("/api", (0, _expressHttpProxy2.default)("http://react-ssr-api.herokuapp.com", {
   proxyReqOptDecorator: function proxyReqOptDecorator(opts) {
-    opts.headers["x-forwarded-host"] = "localhost:3000";
+    opts.headers["x-forwarded-host"] = "localhost:8080";
     return opts;
   }
 }));
@@ -324,6 +324,7 @@ app.use("/api", (0, _expressHttpProxy2.default)("http://react-ssr-api.herokuapp.
 app.use(_express2.default.static("public"));
 
 app.get("*", function (req, res) {
+  return res.send("test Gaurav");
   var store = (0, _createStore2.default)(req);
   var promises = (0, _reactRouterConfig.matchRoutes)(_Routes2.default, req.path).map(function (_ref) {
     var route = _ref.route;
@@ -353,8 +354,10 @@ app.get("*", function (req, res) {
   });
 });
 
-app.listen(3000, function () {
-  console.log("listening on port 3000");
+var port = process.env.PORT || 8080;
+
+app.listen(port, function () {
+  console.log("listening on port " + port);
 });
 
 /***/ }),
@@ -412,11 +415,8 @@ function App(_ref) {
 }
 
 exports.default = {
-  component: App,
-  loadData: function loadData(_ref2) {
-    var dispatch = _ref2.dispatch;
-    return dispatch((0, _index.fetchCurrentUser)());
-  }
+  component: App
+  // loadData: ({ dispatch }) => dispatch(fetchCurrentUser()),
 };
 
 /***/ }),

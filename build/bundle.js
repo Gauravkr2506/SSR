@@ -313,10 +313,11 @@ var _reactRouterDom = __webpack_require__(3);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
+var port = process.env.PORT || 8080;
 
 app.use("/api", (0, _expressHttpProxy2.default)("http://react-ssr-api.herokuapp.com", {
   proxyReqOptDecorator: function proxyReqOptDecorator(opts) {
-    opts.headers["x-forwarded-host"] = "localhost:8080";
+    opts.headers["x-forwarded-host"] = "localhost:" + port;
     return opts;
   }
 }));
@@ -352,8 +353,6 @@ app.get("*", function (req, res) {
     // res.send(renderer(req, store));
   });
 });
-
-var port = process.env.PORT || 8080;
 
 app.listen(port, function () {
   console.log("listening on port " + port);

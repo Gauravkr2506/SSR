@@ -8,12 +8,13 @@ import createStore from "./helpers/createStore";
 import { Route } from "react-router-dom";
 
 const app = express();
+const port = process.env.PORT || 8080;
 
 app.use(
   "/api",
   proxy("http://react-ssr-api.herokuapp.com", {
     proxyReqOptDecorator(opts) {
-      opts.headers["x-forwarded-host"] = "localhost:8080";
+      opts.headers["x-forwarded-host"] = "localhost:" + port;
       return opts;
     },
   })
@@ -52,8 +53,6 @@ app.get("*", (req, res) => {
       // res.send(renderer(req, store));
     });
 });
-
-const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
   console.log("listening on port " + port);

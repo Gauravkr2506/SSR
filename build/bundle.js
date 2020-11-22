@@ -317,7 +317,7 @@ var port = process.env.PORT || 8080;
 
 app.use("/api", (0, _expressHttpProxy2.default)("http://react-ssr-api.herokuapp.com", {
   proxyReqOptDecorator: function proxyReqOptDecorator(opts) {
-    opts.headers["x-forwarded-host"] = "localhost:" + port;
+    opts.headers["x-forwarded-host"] = "https://ssr-test-app.herokuapp.com";
     return opts;
   }
 }));

@@ -313,7 +313,7 @@ var _reactRouterDom = __webpack_require__(3);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
-var port = process.env.PORT || 8080;
+var port = 8080;
 
 app.use("/api", (0, _expressHttpProxy2.default)("https://react-ssr-api.herokuapp.com", {
   proxyReqOptDecorator: function proxyReqOptDecorator(opts) {

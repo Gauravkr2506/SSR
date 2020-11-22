@@ -42768,7 +42768,7 @@ var AdminsListPage = function (_Component) {
       return _react2.default.createElement(
         "div",
         null,
-        "Here's a big list of admins:",
+        "Here's a big list of adminsz:",
         _react2.default.createElement(
           "ul",
           null,

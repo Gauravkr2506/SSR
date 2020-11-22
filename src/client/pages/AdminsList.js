@@ -17,7 +17,7 @@ class AdminsListPage extends Component {
   render() {
     return (
       <div>
-        Here's a big list of admins:
+        Here's a big list of adminsz:
         <ul>{this.renderAdmins()}</ul>
       </div>
     );

@@ -8,8 +8,8 @@
     "dev:server":"nodemon --watch build --exec node build/bundle.js",
     "dev:build-server":"webpack --config webpack.server.js --watch",
     "dev:build-client":"webpack --config webpack.client.js --watch",
-    "postinstall":"npm-run-all --parallel dev:*",
-    "post:build-server":"webpack --config webpack.server.js",
+    "postinstall":"webpack --config webpack.server.js && webpack --config webpack.client.js",
+    "post:build-server":"webpack --config webpack.server.js ",
     "post:build-client":"webpack --config webpack.client.js",
     "start":"node build/bundle.js"
   },

@@ -414,8 +414,11 @@ function App(_ref) {
 }
 
 exports.default = {
-  component: App
-  // loadData: ({ dispatch }) => dispatch(fetchCurrentUser()),
+  component: App,
+  loadData: function loadData(_ref2) {
+    var dispatch = _ref2.dispatch;
+    return dispatch((0, _index.fetchCurrentUser)());
+  }
 };
 
 /***/ }),

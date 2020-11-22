@@ -22,6 +22,7 @@ app.use(
 app.use(express.static("public"));
 
 app.get("*", (req, res) => {
+  return res.send("test Gaurav");
   const store = createStore(req);
   const promises = matchRoutes(Routes, req.path)
     .map(({ route }) => {
